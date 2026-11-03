@@ -20,6 +20,8 @@ jobs:
           java-version: 17
       - run: npm install
       - run: npm run build
+        env:
+          VITE_AI_PROXY_URL: ${{ vars.AI_PROXY_URL }}
       - run: npx cap add android
       - run: npx cap sync android
       - run: chmod +x gradlew && ./gradlew assembleDebug
